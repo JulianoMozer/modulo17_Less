@@ -1,0 +1,140 @@
+// Importando variáveis
+@import "mapas.less";
+
+// Estilo global
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: @font-principal;
+}
+
+body {
+    background-color: @cor-fundo;
+}
+
+// Container
+.container {
+    max-width: @largura-container;
+    width: 100%;
+    margin: 0 auto;
+}
+
+// Header
+header {
+    background-color: @cor-header;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+
+    .menu {
+        display: flex;
+
+        li {
+            font-weight: bold;
+            margin-left: 24px;
+            list-style: none;
+            &:hover {
+                transform: scale(1.2); // Aumenta 20%
+            }
+
+            a {
+                color: @cor-fundo;
+                text-decoration: none;
+                transition: transform 0.3s; // Transição suave
+            }
+        }
+    }
+}
+
+// Seção de produtos
+section {
+    padding: 56px 0;
+
+    .products {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 32.66%);
+        column-gap: 1%;
+        row-gap: 4%;
+        width: 100%;
+        list-style: none;
+
+        .product-item {
+            img {
+                width: 100%;
+                border-radius: 16px;
+            }
+
+            .product-button {
+                display: block;
+                background-color: @cor-botao;
+                color: @cor-fundo;
+                text-align: center;
+                padding: 8px 0;
+                border-radius: 8px;
+                margin-top: 8px;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: @cor-botao-hover;
+                }
+            }
+        }
+    }
+}
+
+// Footer
+footer {
+    .footer-container {
+        background-color: @cor-header;
+        padding: 20px 0;
+
+        ul.social-media {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+
+            a {
+                img {
+                    width: 32px;
+                    margin: 12px;
+                    transition: transform 0.3s; // Transição suave
+
+                    &:hover {
+                        transform: scale(1.2); // Aumenta 20%
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Media Queries
+@media screen and (max-width: 1023px) {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .products {
+        display: block;
+
+        .product-item {
+            margin-bottom: 32px;
+        }
+    }
+}
